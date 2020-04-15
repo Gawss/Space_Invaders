@@ -14,6 +14,8 @@ public class SettingsManager : MonoBehaviour
 
     #endregion
 
+    #if !UNITY_EDITOR && UNITY_WEBGL
+
     void Awake(){
         CalculateScreenDimensions();
     }
@@ -23,6 +25,23 @@ public class SettingsManager : MonoBehaviour
         player, bullets, enemies and background
     */
     private void CalculateScreenDimensions(){
+        GameObject[] borders = GameObject.FindGameObjectsWithTag("Border");
+        foreach(GameObject border in borders){
+            if(border.name == "Left") m_screenBorder_Left = border.transform.position.x;
+            if(border.name == "Right") m_screenBorder_Right = border.transform.position.x;
+            if(border.name == "Top") m_screenBorder_Top = border.transform.position.y;
+            if(border.name == "Bottom") m_screenBorder_Bottom = border.transform.position.y;
+        }
+    }
+    #endif
+
+    #if UNITY_EDITOR
+    
+    void Awake(){
+        CalculateScreenDimensions();
+    }
+
+    private void CalculateScreenDimensions(){
         m_screeDimension = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height,0));
         m_screenBorder_Left = -m_screeDimension.x;
         m_screenBorder_Right = m_screeDimension.x;
@@ -30,9 +49,10 @@ public class SettingsManager : MonoBehaviour
         m_screenBorder_Bottom = -m_screeDimension.y;
     }
 
+    #endif
+
     #region Get&Set
 
-    public Vector3 screenDimension { set {m_screeDimension = screenDimension;} get{return this.m_screeDimension;}}
     public float screenBorder_Left { get {return this.m_screenBorder_Left;}}
     public float screenBorder_Right { get {return this.m_screenBorder_Right;}}
     public float screenBorder_Top { get {return this.m_screenBorder_Top;}}

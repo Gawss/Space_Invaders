@@ -4,15 +4,28 @@ using UnityEngine;
 
 public class InputController : MonoBehaviour
 {
-    private float inputValue_horizontal;
-    private float inputValue_vertical;
+    private float speed = 0.05f;
+
+    #if !UNITY_EDITOR && UNITY_WEBGL
+        void Start(){
+            WebGLInput.captureAllKeyboardInput = true;
+        }
+    #endif
 
     public Vector2 GetMovementInputs()
     {
-        inputValue_horizontal =  Input.GetAxis("Horizontal");
-        inputValue_vertical =  Input.GetAxis("Vertical");
-        
-        return new Vector2(inputValue_horizontal, inputValue_vertical);
+        Vector3 direction = Vector3.zero;
+        if (SystemInfo.supportsAccelerometer)
+        {
+            direction.x = -Input.acceleration.y;
+            direction.z = Input.acceleration.x;
+
+            direction *= (Time.deltaTime * speed);
+            return new Vector2(direction.x, direction.z);
+        }
+        direction.x =  Input.GetAxis("Horizontal");
+        direction.y =  Input.GetAxis("Vertical");
+        return new Vector2(direction.x, direction.y);
     }
 
     public bool GetAttackInput()
@@ -25,7 +38,7 @@ public class InputController : MonoBehaviour
 
     public bool GetPauseInput()
     {
-        if(Input.GetKeyDown(KeyCode.Escape)){
+        if(Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P)){
             return true;
         }
         return false;

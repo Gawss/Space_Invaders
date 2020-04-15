@@ -19,7 +19,6 @@ public class ObjectPooler : MonoBehaviour
     
     private Vector2 initialPosition;
 
-    
     void Start()
     {
         initialPosition = new Vector2(GlobalManager.Instance.SettingsManager().screenBorder_Right + 5.0f, 0.0f);
@@ -29,7 +28,6 @@ public class ObjectPooler : MonoBehaviour
     private void InitPooler()
     {
         objects = new List<GameObject>();
-
         foreach (ObjectPoolItem element in elementsToPool) {
             for (int i = 0; i < element.poolSize; i++) {
                 AddObject(element.objPrefab);

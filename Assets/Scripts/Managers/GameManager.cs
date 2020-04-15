@@ -52,6 +52,7 @@ public class GameManager : MonoBehaviour
         m_currentLevel=1;
         m_score = 0;
         canvasController.scoreTxt.text = m_score.ToString();
+        canvasController.EnableShipPicker(SystemInfo.supportsAccelerometer);
         m_startLevel = true;
         m_isEnded = false;
         canvasController.ShowGameOver(m_isEnded, player.GetComponent<Player>().currentSkin);

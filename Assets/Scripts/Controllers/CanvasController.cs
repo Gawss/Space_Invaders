@@ -10,6 +10,7 @@ public class CanvasController : MonoBehaviour
     [SerializeField] private Text m_finalScoreTxt;
     [SerializeField] private GameObject m_pauseMenu;
     [SerializeField] private GameObject m_gameOverMenu;
+    [SerializeField] private GameObject m_shipPicker = null;
     [SerializeField] private List<Color32> m_backgroundColors = null;
     [SerializeField] private GameObject m_mainMenu = null;
     [SerializeField] private GameObject m_gameUI = null;
@@ -23,6 +24,10 @@ public class CanvasController : MonoBehaviour
     public void ShowPause(bool show, int color_){
         m_pauseMenu.GetComponentInChildren<Image>().color = m_backgroundColors[color_];
         m_pauseMenu.SetActive(show);        
+    }
+
+    public void EnableShipPicker(bool enable){
+        m_shipPicker.SetActive(enable);
     }
 
     #region Get&Set

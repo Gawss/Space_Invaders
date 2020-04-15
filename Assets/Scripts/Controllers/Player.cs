@@ -35,8 +35,12 @@ public class Player : MonoBehaviour
         Vector2 translation = new Vector2(inputValue.x * m_movementSpeed * Time.deltaTime, inputValue.y * m_movementSpeed * Time.deltaTime);
         Vector2 newPosition = new Vector2(transform.position.x + translation.x, transform.position.y + translation.y);
 
-        Vector3 screenDimension = GlobalManager.Instance.SettingsManager().screenDimension;
-        if(newPosition.x > -screenDimension.x-m_screenOffset && newPosition.x < screenDimension.x+m_screenOffset && newPosition.y > -screenDimension.y-m_screenOffset && newPosition.y < screenDimension.y+m_screenOffset){
+        float leftBorder = GlobalManager.Instance.SettingsManager().screenBorder_Left;
+        float rightBorder = GlobalManager.Instance.SettingsManager().screenBorder_Right;
+        float bottomBorder = GlobalManager.Instance.SettingsManager().screenBorder_Bottom;
+        float topBorder = GlobalManager.Instance.SettingsManager().screenBorder_Top;
+        
+        if(newPosition.x > leftBorder-m_screenOffset && newPosition.x < rightBorder+m_screenOffset && newPosition.y > bottomBorder-m_screenOffset && newPosition.y < topBorder+m_screenOffset){
             transform.Translate(translation);
         }
     }
