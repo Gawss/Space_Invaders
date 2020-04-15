@@ -1,16 +1,18 @@
-### SPACE INVADERS-Based minigame
+## SPACE INVADERS-Based Minigame
+
+You can play it here: http://www.palaciorestrepo.com/space_invaders
 
 ## Key Features:
 
 - Player can move in all directions by pressing AWSD or regular arrows
 - Player can shoot bullets by right-clicking (it allows click-holding)
-- Player can change its spaceship by pressing 1,2,3,4 keys at the top of the alphanumeric keyboard
+- Player can change him/her spaceship by pressing 1,2,3,4 keys at the top of the alphanumeric keyboard
 - Each spaceship has its own type of bullets and those are only effective against one specific kind of enemy
 
 - Enemies spawn randomly on X-Axis at the top of the screen (upper the screen's border)
-- Each enemy can move move towards the player in Y-Axis
+- Each enemy can move towards the player in Y-Axis
 - Movement in X-Axis is also randomly defined when the enemy is spawned; additionally, it bounces with screen borders
-- Enemy type is random
+- Enemy's type is random
 - Movement speed vary depending on enemy's type
 - Enemies will show its shield against inffective bullets
 
@@ -34,10 +36,10 @@
 # Sound
 
 It includes the following reactions whenever:
-    - Player dies
-    - Enemy dies
-    - Enemy shield is activated
-    - Player shoots
+- Player dies
+- Enemy dies
+- Enemy shield is activated
+- Player shoots
 
 # Inputs
 
@@ -47,6 +49,6 @@ It includes the following reactions whenever:
 
 # External
 
-Space Invader Assets
-Texture Atlas Slicer: https://github.com/toxicFork/Unity3D-TextureAtlasSlicer
+- Space Invader Assets
+- Texture Atlas Slicer: https://github.com/toxicFork/Unity3D-TextureAtlasSlicer
 
