@@ -30,7 +30,7 @@ public class InputController : MonoBehaviour
 
     public bool GetAttackInput()
     {
-        if(Input.GetButton("Fire1")){
+        if(Input.GetButton("Fire1") || Input.GetKey(KeyCode.Space)){
             return true;
         }
         return false;

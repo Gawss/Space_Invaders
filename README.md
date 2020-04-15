@@ -5,7 +5,7 @@ You can play it here: http://www.palaciorestrepo.com/space_invaders
 ## Key Features:
 
 - Player can move in all directions by pressing AWSD or regular arrows
-- Player can shoot bullets by right-clicking (it allows click-holding)
+- Player can shoot bullets by right-clicking or space bar (it allows holding)
 - Player can change him/her spaceship by pressing 1,2,3,4 keys at the top of the alphanumeric keyboard
 - Each spaceship has its own type of bullets and those are only effective against one specific kind of enemy
 
@@ -44,7 +44,7 @@ It includes the following reactions whenever:
 # Inputs
 
 - Move: AWSD or key arrows
-- Shoot: Right click
+- Shoot: Right click or Space bar
 - Change spaceship: 1,2,3,4 alphanumeric keys
 
 # External
